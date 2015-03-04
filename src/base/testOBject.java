@@ -1,7 +1,9 @@
-package comp3021lab2;
+package base;
 
 import java.util.Date;
 
+import base.User;
+import base.FriendsPost;
 
 
 public class testOBject {

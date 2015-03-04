@@ -1,4 +1,4 @@
-package comp3021lab2;
+package base;
 
 import java.util.Date;
 

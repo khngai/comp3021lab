@@ -1,4 +1,4 @@
-package comp3021lab2;
+package base;
 
 import java.util.Date;
 
@@ -45,29 +45,42 @@ public class User {
 		return detail;
 	}
 	
-	public boolean equals(Object o){
-		boolean ans = true;
-		
-		o.getClass();
-		
-		User user = (User) o;
-		if(user.UserName!=this.UserName){
-			ans = false;
-		}
-		
-		
-		return ans;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((UserEmail == null) ? 0 : UserEmail.hashCode());
+		result = prime * result + UserID;
+		result = prime * result
+				+ ((UserName == null) ? 0 : UserName.hashCode());
+		return result;
 	}
-	
-	public int hashCode(){
-		int hashCode = 0;
-		
-		UserName.hashCode();
-		UserEmail.hashCode();
-		
-		return hashCode;
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (UserEmail == null) {
+			if (other.UserEmail != null)
+				return false;
+		} else if (!UserEmail.equals(other.UserEmail))
+			return false;
+		if (UserID != other.UserID)
+			return false;
+		if (UserName == null) {
+			if (other.UserName != null)
+				return false;
+		} else if (!UserName.equals(other.UserName))
+			return false;
+		return true;
 	}
-	
+
 	public boolean contains(String keyword){
 		return true;
 	}
