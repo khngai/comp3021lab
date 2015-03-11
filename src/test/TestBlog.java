@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Date;
+
 import base.*;
+import blog.Blog;
 
 public class TestBlog {
 		public String getInput(){

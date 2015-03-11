@@ -2,7 +2,7 @@ package base;
 
 import java.util.Date;
 
-public class User {
+public class User implements Comparable<User>{
 	private int UserID;
 	private String UserName;
 	private String UserEmail;
@@ -84,4 +84,20 @@ public class User {
 	public boolean contains(String keyword){
 		return true;
 	}
+
+	@Override
+	public int compareTo(User o) {
+		// TODO Auto-generated method stub
+		if(this.UserID==o.UserID){
+			return 0;
+		}
+		else if(this.UserID>o.UserID){
+			return 1;
+		}
+		else{
+			return -1;
+		}
+	}
+	
+	
 }

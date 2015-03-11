@@ -1,11 +1,14 @@
-package base;
-
+package blog;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.ConcurrentModificationException;
+
+import base.Post;
+import base.User;
 
 public class Blog {
 		private User user;
@@ -90,5 +93,23 @@ public class Blog {
 			return true;
 		}
 		
+		public void search(int month, String someone){
+			
+			Calendar cal = Calendar.getInstance();
+			
+			for(Post p : allPosts){
+				cal.setTime(p.getDate());
+				int postMonth = cal.get(Calendar.MONTH);
+				
+				if(postMonth+1==month&&p.getContent().contains(someone)){
+					System.out.println(p);
+				}
+			}
+		}
+
+		public void setPosts(ArrayList<Post> allposts2) {
+			// TODO Auto-generated method stub
+			allPosts=allposts2;
+		}
 		
 }

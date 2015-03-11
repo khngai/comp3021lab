@@ -1,7 +1,7 @@
 package base;
 import java.util.Date;
 
-public class Post {
+public class Post implements Comparable<Post>{
 		
 	private Date date;
 	private String content;
@@ -75,4 +75,12 @@ public class Post {
 		}
 		return true;
 	}
+
+	@Override
+	public int compareTo(Post o) {
+		// TODO Auto-generated method stub
+		return this.date.compareTo(o.date);
+	}
+	
+	
 }
