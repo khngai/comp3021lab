@@ -1,8 +1,15 @@
 package blog;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.ConcurrentModificationException;
@@ -10,7 +17,11 @@ import java.util.ConcurrentModificationException;
 import base.Post;
 import base.User;
 
-public class Blog {
+/**
+ * @author khngai
+ *
+ */
+public class Blog implements Serializable{
 		private User user;
 		private ArrayList<Post> allPosts;
 		
@@ -110,6 +121,45 @@ public class Blog {
 		public void setPosts(ArrayList<Post> allposts2) {
 			// TODO Auto-generated method stub
 			allPosts=allposts2;
+		}
+		
+		public void save(String filepath) {
+			FileOutputStream out;
+			ObjectOutputStream oos;
+			try {
+				out = new FileOutputStream(filepath);
+				oos = new ObjectOutputStream(out);
+				oos.writeObject(this);
+				out.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		
+		}
+		
+		public void load(String filepath){
+			FileInputStream in;
+			ObjectInputStream ois;
+			try {
+				in = new FileInputStream(filepath);
+				
+				ois = new ObjectInputStream(in);
+
+					Blog read = (Blog) ois.readObject();
+					this.allPosts=read.allPosts;
+					this.user=read.user;
+					in.close();
+			}catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+			}catch(FileNotFoundException e){
+						System.out.println("Wait! There is something wrong. I cannot find the file");
+			}catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 }

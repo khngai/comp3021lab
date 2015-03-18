@@ -1,8 +1,9 @@
 package base;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Comparable<User>{
+public class User implements Comparable<User>, Serializable{
 	private int UserID;
 	private String UserName;
 	private String UserEmail;
@@ -23,7 +24,7 @@ public class User implements Comparable<User>{
 		 UserID= UserIDs;
 	}
 	
-	public String getusername(){
+	public String getUserName(){
 		return UserName;
 	}
 	
