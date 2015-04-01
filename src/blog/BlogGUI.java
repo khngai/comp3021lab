@@ -41,7 +41,8 @@ public class BlogGUI implements ActionListener{
 		inputLabel = new JLabel("You can still input 140 Characters");
 		posting.add(inputLabel,BorderLayout.PAGE_START);
 		postTextArea = new JTextArea("What's on your mind?", 20, 40);
-		postTextArea.setBackground(Color.CYAN);
+		//postTextArea.setBackground(Color.CYAN);
+		postTextArea.setBackground(Color.decode("#FFFFE0"));
 		JScrollPane scrollPane = new JScrollPane(postTextArea); 
 		postTextArea.setEditable(true);
 		posting.add(postTextArea,BorderLayout.CENTER);
