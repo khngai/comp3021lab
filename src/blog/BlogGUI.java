@@ -56,7 +56,7 @@ public class BlogGUI implements ActionListener{
 		mainFrame.add(posting);
 		
 		//postPanel=new JPanel(new BorderLayout());
-		postContent=new JTextField("Here is put my posts!", 25);
+		postContent=new JTextField("Here is put my posts!", 40);
 		postContent.setEditable(false);
 		buttonPanel.add(postContent, BorderLayout.SOUTH);
 		mainFrame.add(buttonPanel);
