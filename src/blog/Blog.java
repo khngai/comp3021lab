@@ -77,7 +77,15 @@ public class Blog implements Serializable{
 
 		@Override
 		public String toString() {
-			return "Blog [user=" + user + ", allPosts=" + allPosts + "]";
+			String Blogdetail="Blog [user=" + user ;
+			String BlogPost="allPosts=";
+			String Post="";
+			for(Post p:allPosts){
+			Post=Post+p.toString()+"\n";
+					}
+			String Blogtext=Blogdetail+" "+BlogPost+Post+" ]";
+			
+			return Blogtext;
 		}
 
 		@Override
