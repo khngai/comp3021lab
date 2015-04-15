@@ -25,6 +25,10 @@ public class Blog implements Serializable{
 		private User user;
 		private ArrayList<Post> allPosts;
 		
+		public Blog(){
+			
+		}
+		
 		public Blog(User user){
 			allPosts=new ArrayList<Post>();
 			
@@ -36,6 +40,10 @@ public class Blog implements Serializable{
 		
 		public User getUser(){
 			return user;
+		}
+		
+		public void add(Post p){
+			allPosts.add(p);
 		}
 		
 		public void post(Post p){
